@@ -1,6 +1,5 @@
 require('dotenv').config()
 require('./db')
-const User = require('./user');
 const { GraphQLServer } = require('graphql-yoga')
 
 const typeDefs = `

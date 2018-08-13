@@ -1,0 +1,19 @@
+{
+  "name": "graphql-server-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.0.0",
+    "graphql-yoga": "^1.16.0",
+    "lodash.merge": "^4.6.1",
+    "mongoose": "^5.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const User = require('./user');
+const User = require('./user/index');
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useNewUrlParser: true});
 
 var db = mongoose.connection;
@@ -9,10 +9,12 @@ db.once('open', function() {
   console.log(`we're connected! to: mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
 });
 
-const poopy = new User({name: 'poopy', email: 'poopy@gmail.com'});
+const travis = new User({email: 'travis@gmail.com', passwordHash: 'qwrtuip12'});
 // travis.report();
+// travis.hashPassword(travis.passwordHash);
+console.log('travis.hashPassword(travis.passwordHash);: ', travis.hashPassword(travis.passwordHash));
 
-poopy.save((err, travis) => {
+travis.save((err, travis) => {
   if (err) return console.error(err);
-  poopy.report();
+  console.log('travis: ', travis);
 });
