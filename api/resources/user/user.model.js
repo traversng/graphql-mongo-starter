@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  passwordHash: {
+  password: {
     required: true,
     type: String
   }
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods = {
   authenticate(plainTextPassword) {
-    return bcrypt.compareSync(plaintTextPassword, this.passwordHash);
+    return bcrypt.compareSync(plaintTextPassword, this.password);
   },
   hashPassword(plainTextPassword) {
     if (plainTextPassword) {
@@ -26,5 +26,4 @@ userSchema.methods = {
   }
 }
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+export const User = mongoose.model('User', userSchema);;
