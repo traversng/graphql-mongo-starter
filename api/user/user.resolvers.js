@@ -10,11 +10,4 @@ const updateMe = (_, {input}, {user}) => {
   return user.save()
 }
 
-export const userResolvers = {
-  Query: {
-    getMe
-  },
-  Mutation: {
-    updateMe
-  }
-}
+export { getMe, updateMe }
